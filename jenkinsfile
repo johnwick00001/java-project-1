@@ -20,7 +20,7 @@ node('master'){
 	
 	
 	stage('Code Deployment'){
-		deploy adapters: [tomcat.service(credentialsId: 'admin', path: '', url: 'http://http://54.210.233.72:8080//')], contextPath: 'Planview', onFailure: false, war: 'target/*.war'
+		deploy adapters: [tomcat.service(credentialsId: 'admin', path: '', url: 'http://http://54.210.233.72:8080//')], contextPath: 'counterwebapp', onFailure: false, war: 'target/*.war'
 	}
         stage ('Notification'){
                      emailtext(
