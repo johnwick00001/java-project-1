@@ -22,3 +22,10 @@ node('master'){
 	stage('Code Deployment'){
 		deploy adapters: [tomcat.service(credentialsId: 'admin', path: '', url: 'http://http://54.210.233.72:8080//')], contextPath: 'Planview', onFailure: false, war: 'target/*.war'
 	}
+        stage ('Notification'){
+                     emailtext(
+                         subjrct: "job completed",
+                          body:   "jenkins pipeline job for maven build got completed",
+                           to: "build alert-example.com"
+                       )
+}
